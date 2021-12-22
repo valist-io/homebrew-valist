@@ -5,21 +5,21 @@
 class Cli < Formula
   desc "Web3-native software distribution."
   homepage "https://valist.io"
-  version "0.6.2"
+  version "0.6.3"
   license "MPL-2.0"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.2/valist_0.6.2_darwin_amd64.tar.gz"
-      sha256 "335d5351ef5ea44b58a8d53db17636dbbd67a70f22b1187ea75d050091100b97"
+    if Hardware::CPU.arm?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_darwin_arm64.tar.gz"
+      sha256 "79cfb4e9cab78c0358f483db9afa1e5f4021af02937abb4d7c0d2f6cfc536703"
 
       def install
         bin.install "valist"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.2/valist_0.6.2_darwin_arm64.tar.gz"
-      sha256 "e3f9d88e6e298e27942708bc85144ab79202e5cbfbdda8d2a6eee28a85a5ac61"
+    if Hardware::CPU.intel?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_darwin_amd64.tar.gz"
+      sha256 "48c11bf9da6dba404bba7cab634fc9f607598d9b9e439ce8560c3b9d5131566c"
 
       def install
         bin.install "valist"
@@ -28,17 +28,17 @@ class Cli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.2/valist_0.6.2_linux_arm64.tar.gz"
-      sha256 "7c76f43e65512cea7a5b2968ed60510e8a1a3808ca9168849690240b331e8bb8"
+    if Hardware::CPU.intel?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_linux_amd64.tar.gz"
+      sha256 "b50aa94f42ed1c49ed6cd5764c9ca9b3e3d0fde5a605f8ed74ad8ca8bcb05f3c"
 
       def install
         bin.install "valist"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.2/valist_0.6.2_linux_amd64.tar.gz"
-      sha256 "5bd64a321a8cb589e068899b6494cb28aa408ada21afc0780a29862ae811eced"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_linux_arm64.tar.gz"
+      sha256 "ab3275e6ce83c5b707a1eba3e30fd718722af321d1cf3a9254c28b7ff73552bb"
 
       def install
         bin.install "valist"
