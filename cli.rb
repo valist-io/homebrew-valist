@@ -9,17 +9,17 @@ class Cli < Formula
   license "MPL-2.0"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_darwin_arm64.tar.gz"
-      sha256 "79cfb4e9cab78c0358f483db9afa1e5f4021af02937abb4d7c0d2f6cfc536703"
+    if Hardware::CPU.intel?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_darwin_amd64.tar.gz"
+      sha256 "abe4009688bc20aa2bcff902757f4af6d1dce0c9cb945a7f706b9d078c896da7"
 
       def install
         bin.install "valist"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_darwin_amd64.tar.gz"
-      sha256 "48c11bf9da6dba404bba7cab634fc9f607598d9b9e439ce8560c3b9d5131566c"
+    if Hardware::CPU.arm?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_darwin_arm64.tar.gz"
+      sha256 "3e4d606535089cbc655f361dd4fd945319e3be06fba67b881f8c8b6c5ba3c794"
 
       def install
         bin.install "valist"
@@ -28,17 +28,17 @@ class Cli < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_linux_amd64.tar.gz"
-      sha256 "b50aa94f42ed1c49ed6cd5764c9ca9b3e3d0fde5a605f8ed74ad8ca8bcb05f3c"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_linux_arm64.tar.gz"
+      sha256 "c7138d91f3ae17a72d3fda39be19be85de019c8b482ac112c63c5326c545c21f"
 
       def install
         bin.install "valist"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_linux_arm64.tar.gz"
-      sha256 "ab3275e6ce83c5b707a1eba3e30fd718722af321d1cf3a9254c28b7ff73552bb"
+    if Hardware::CPU.intel?
+      url "https://github.com/valist-io/valist/releases/download/v0.6.3/valist_0.6.3_linux_amd64.tar.gz"
+      sha256 "94e32d10ccdb3d95528155adf169f72fb638154548daec84004dc2fff57a76fa"
 
       def install
         bin.install "valist"
